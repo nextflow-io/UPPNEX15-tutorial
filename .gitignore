@@ -1,0 +1,5 @@
+.nextflow*
+.git
+.vagrant
+work
+
