@@ -1,3 +1,5 @@
+#!/usr/bin/env nextflow
+
 params.pair1 = "$HOME/ACGT14-tutorial/data/ggal/*_1.fq" 
 params.pair2 = "$HOME/ACGT14-tutorial/data/ggal/*_2.fq"
 params.genome = "$HOME/ACGT14-tutorial/data/ggal/ggal_1_48850000_49020000.Ggal71.500bpflank.fa"

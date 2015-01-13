@@ -1,13 +1,13 @@
 #!/usr/bin/env nextflow
-
+ 
 /* 
  * Define the pipeline parameters
  */
-params.query = "$HOME/ACGT14-tutorial/data/sample.fa"
+params.query = "$baseDir/data/sample.fa"
 params.chunkSize = 10
-params.db = "$HOME/blast-db/pdb/pdb"
+params.db = "$baseDir/blast-db/pdb/tiny"
 
-DB = file(params.db)
+db = file(params.db)
 fasta = file(params.query)
 seq = Channel.from(fasta).splitFasta(by: params.chunkSize)
 
@@ -22,6 +22,6 @@ process blast {
     file 'out' into blast_result
 
     """
-    blastp -db $DB -query seq.fa -outfmt 6 > out
+    blastp -db $db -query seq.fa -outfmt 6 > out
     """
 }

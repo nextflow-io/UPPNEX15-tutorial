@@ -1,8 +1,7 @@
 #!/usr/bin/env nextflow
 
-NR = file("$HOME/blast-db/pdb/pdb")
-my_file = file("$HOME/ACGT14-tutorial/data/sample.fa")
-proteins = Channel.from(my_file)
+NR = file("$baseDir/blast-db/pdb/tiny")
+proteins = file("$baseDir/data/sample.fa")
 
 process blastJob {
 

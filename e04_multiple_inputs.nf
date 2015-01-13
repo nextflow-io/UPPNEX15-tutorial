@@ -1,21 +1,23 @@
 #!/usr/bin/env nextflow
-
+ 
 /* 
  * Define the pipeline parameters
  */
-params.query = "$HOME/ACGT14-tutorial/data/sample.fa"
+params.query = "$baseDir/data/sample.fa"
 params.chunkSize = 10
-params.db = "$HOME/blast-db/pdb/pdb"
-params.out = './blast_result.txt'
+params.db = "$baseDir/blast-db/pdb/tiny"
+params.out = 'blast_result.txt'
 
 /* 
  * the path where the BLAST DB is located 
  */
-DB = file(params.db)
+ 
+db = file(params.db)
 
 /* 
  * A channel emitting fasta chunks
  */
+
 seq = Channel
         .fromPath(params.query)
         .splitFasta(by: params.chunkSize)
@@ -24,6 +26,7 @@ seq = Channel
 /*
  * Execute a BLAST job for each chunk for the provided sequences
  */
+
 process blast {
     input:
     file 'seq.fa' from seq
@@ -32,10 +35,16 @@ process blast {
     file 'out' into blast_result
 
     """
-    blastp -db $DB -query seq.fa -outfmt 6 > out
+    blastp -db $db -query seq.fa -outfmt 6 > out
     """
 }
 
+/* 
+ * Collect all the outputs produced by the `blast` process
+ * executions to a single file, whose name is defined by  
+ * the `params.out` parameters
+ */
+ 
 blast_result
   .collectFile(name: params.out)
   .subscribe {  
