@@ -1,4 +1,4 @@
-ACGT14-tutorial
+UPPNEX15-tutorial
 -----------------
 
-This repository contains the examples for the Nextflow tutorial at ACGT14.
+This repository contains the examples for the Nextflow tutorial at UPPNEX15.
