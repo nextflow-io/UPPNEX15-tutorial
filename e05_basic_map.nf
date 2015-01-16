@@ -2,6 +2,10 @@
 
 /* 
  * This example shows how concatenate operators
+ * 
+ * - `from` creates a channel emitting the specified values 
+ * - `map` transforms each emitted value applying the specified rule 
+ * - `subscribe` will print the resulting values 
  */
 
 Channel

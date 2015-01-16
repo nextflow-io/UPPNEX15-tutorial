@@ -3,6 +3,11 @@
 NR = file("$baseDir/blast-db/pdb/tiny")
 proteins = file("$baseDir/data/sample.fa")
 
+/*
+ * Executes a Blast search with using the `protein` file.
+ * The output is sent over the `result` channel 
+ */
+
 process blastJob {
 
   input:
@@ -17,5 +22,10 @@ process blastJob {
 
 }
 
+/* 
+ * The `subscribe` operator is triggered when the `blast_result`
+ * emits the output produced by the above process, printing 
+ * the blast result
+ */
 blast_result.subscribe { println it.text }
 

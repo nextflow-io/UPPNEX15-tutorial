@@ -14,6 +14,7 @@ seq = Channel.from(fasta).splitFasta(by: params.chunkSize)
 /*
  * Execute a BLAST job for each chunk for the provided sequences
  */
+ 
 process blast {
     input:
     file 'seq.fa' from seq

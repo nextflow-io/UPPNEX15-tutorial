@@ -1,8 +1,18 @@
 #!/usr/bin/env nextflow
  
 /* 
- * Define the pipeline parameters
+ * Define the pipeline default parameters. 
+ * 
+ * 
+ * Try to run this example by entering the following command line: 
+ * 
+ *   nextflow run --query data/prot_\*.fa
+ * 
+ * It will execute a blast search for each file that matches the 
+ * the wildcard path matcher 
+ * 
  */
+ 
 params.query = "$baseDir/data/sample.fa"
 params.chunkSize = 10
 params.db = "$baseDir/blast-db/pdb/tiny"

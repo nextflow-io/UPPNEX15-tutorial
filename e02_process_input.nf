@@ -3,6 +3,11 @@
 NR = file("$baseDir/blast-db/pdb/tiny")
 proteins = file("$baseDir/data/sample.fa")
 
+
+/* 
+ * Executes a Blast search with using the `protein` file
+ */
+ 
 process blastJob {
 
   input:
