@@ -1,7 +1,6 @@
 #!/usr/bin/env nextflow
  
 /* 
- * Define the pipeline default parameters. 
  * 
  * 
  * Try to run this example by entering the following command line: 
@@ -13,6 +12,9 @@
  * 
  */
  
+/* 
+ * Define the pipeline default parameters. 
+ */  
 params.query = "$baseDir/data/sample.fa"
 params.chunkSize = 10
 params.db = "$baseDir/blast-db/pdb/tiny"
