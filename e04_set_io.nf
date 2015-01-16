@@ -34,6 +34,8 @@ seq = Channel
  */  
     
 process blast {
+    tag { "seq: $id" }  
+
     input:
     set id, file('seq.fa') from seq
 
