@@ -2,7 +2,7 @@
 
 /* 
  * Basic example showing how to read a multi FASTA file 
- * three sequences at time 
+ * 10 sequences at time 
  */
 
 count = 0
